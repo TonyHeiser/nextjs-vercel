@@ -157,7 +157,8 @@ export async function fetchInvoiceById(id: string) {
       // Convert amount from cents to dollars
       amount: invoice.amount / 100,
     }));
-
+    
+    console.log(invoice);
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
@@ -174,7 +175,7 @@ export async function fetchCustomers() {
       FROM customers
       ORDER BY name ASC
     `;
-
+    
     const customers = data.rows;
     return customers;
   } catch (err) {
